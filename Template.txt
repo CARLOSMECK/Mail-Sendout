@@ -1,17 +1,10 @@
-"Hej ${""First Name""} ${""Last Name""}
+"Hi ${""First Name""}
 
-In order to minimize the getting started time on the day of the education we would like for you to login and confirm access to your Google account.
-You will be instructed to change your password on first login.
-Browse to https://www.gmail.com
-
-Your username is ${""LegacyMail""}
-
-Your password is: ${""Password""}
-
-At this point no information will exist on your account. This is only for you to confirm access, nothing else.
-Do not send any email or book any meetings.
+Thank you for signing up. You submitted the following data:
+  First Name: ${""First Name""} 
+  Last Name: ${""Last Name""}
+  Email Adress: ${""Email Address""}
 
 Please verify the information and contact us if there's any mistake.
 
-Thank you!
-Best regards
+Thank you!"
