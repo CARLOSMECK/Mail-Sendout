@@ -1,7 +1,12 @@
+/**
+ * @OnlyCurrentDoc annotation
+ * Sends emails from spreadsheet rows.
+ */
+
 function sendEmails() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var dataSheet = ss.getSheets()[0];
-  var dataRange = dataSheet.getRange(2, 1, dataSheet.getMaxRows() - 1, 4);
+  var dataRange = dataSheet.getRange(2, 1, dataSheet.getMaxRows() - 1, 13);
 
   var templateSheet = ss.getSheets()[1];
   var emailTemplate = templateSheet.getRange("A1").getValue();
@@ -19,12 +24,18 @@ function sendEmails() {
     // Given a template string, replace markers (for instance ${"First Name"}) with
     // the corresponding value in a row object (for instance rowData.firstName).
     var emailText = fillInTemplateFromObject(emailTemplate, rowData);
-    var emailSubject = "Tutorial: Simple Mail Merge";
+    var emailSubject = "Incident Standup - Incident need update";
+    
 
-    MailApp.sendEmail(rowData.emailAddress, emailSubject, emailText);
-  } 
+
+ if (rowData.owner != null) {
+   GmailApp.sendEmail(rowData.owner, emailSubject, emailText) 
+
+   }
+
+
 }
-
+}
 
 // Replaces markers in a template string with values define in a JavaScript data object.
 // Arguments:
